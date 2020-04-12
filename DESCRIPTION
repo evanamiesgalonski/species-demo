@@ -13,6 +13,14 @@ Description: What the package does (one paragraph).
 License: MIT + file LICENSE
 Depends: R (>= 3.4)
 Imports:
+    readr,
+    dplyr,
+    sf,
+    mapview,
+    stringr,
+    rmapshaper,
+    ggplot2,
+    tidyverse,
     stats,
     chk,
     lifecycle,

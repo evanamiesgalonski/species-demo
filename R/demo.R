@@ -8,6 +8,9 @@
 #' double(2)
 #'
 double <- function(num){
+
+  chk_number(num)
+
   result <- num * 2
   result
 }
