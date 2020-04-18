@@ -6,6 +6,7 @@ expect_identical(status$BCList, "Red")
 expect_identical(status$`COSEWIC Status`, "No Status")
 
 expect_true(inherits(status, c("tbl_df", "tbl", "data.frame")))
+expect_error(conservation_status("DF"), "Invalid scientific name, see speciesdemo::bcspecies for reference")
 })
 
 test_that("ecosrctiodns map works", {

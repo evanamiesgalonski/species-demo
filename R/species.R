@@ -11,6 +11,10 @@ conservation_status <- function(species) {
 
   chk::chk_character(species)
 
+  if(!species %in% speciesdemo::bc_species$ScientificName){
+    err::err("Invalid scientific name, see speciesdemo::bcspecies for reference")
+  }
+
   species_conservation <- speciesdemo::bc_species[speciesdemo::bc_species$ScientificName == species,]
   species_conservation_columns <- species_conservation[c("BCList", "COSEWIC Status", "Implemented Date")]
   return(print(species_conservation_columns))
@@ -25,6 +29,11 @@ conservation_status <- function(species) {
 #' @examples
 #'
 species_map <- function(species) {
+
+  chk::chk_character(species)
+  if(!species %in% speciesdemo::bc_species$ScientificName){
+    err::err("Invalid scientific name, see speciesdemo::bcspecies for reference")
+  }
 
   ecosections <- speciesdemo:::ecosections
   ecosection_simple <- speciesdemo:::ecosection_simple
