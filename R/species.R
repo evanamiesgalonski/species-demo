@@ -33,11 +33,11 @@ species_map <- function(species) {
   species_ecosections <- ecosections$Ecosection[ecosections$ScientificName == species]
   species_ecosections_spatial <- ecosection_simple[ecosection_simple$ECOSEC_CD %in% species_ecosections,]
   species_present <- ecosection_simple
-  species_present$Present <- if_else(species_present$ECOSEC_CD %in% species_ecosections, TRUE, FALSE)
+  species_present$Present <- dplyr::if_else(species_present$ECOSEC_CD %in% species_ecosections, TRUE, FALSE)
 
   gp <- ggplot2::ggplot() +
     ggplot2::geom_sf(data = bc_boundary, size = 0.2) +
-    ggplot2::geom_sf(data = species_present, aes(fill = Present), size = 0.05) +
+    ggplot2::geom_sf(data = species_present, ggplot2::aes(fill = Present), size = 0.05) +
     ggplot2::scale_fill_manual(values = c("transparent", "red"),
                       name = " ",
                       labels = c("Species Absent", "Species Present")) +
