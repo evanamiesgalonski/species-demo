@@ -8,7 +8,7 @@ library(ggplot2)
 library(tidyverse)
 library(magrittr)
 
-#### species data ####
+# species data
 # clean species data
 bc_species <- readr::read_tsv("/Users/evanamies-galonski/Documents/gin thesis/bcsee_export.tsv")
 names(bc_species) <- gsub(" ", "", names(bc_species))
@@ -38,7 +38,7 @@ bc_species %<>% select(-c(ScientificNameSynonyms, EnglishNameSynonyms, GlobalSta
                           BreedingBird, MappingStatus, X46, CDCMaps, COSEWIC))
 
 
-#### ecosections ####
+# ecosections
 ecosections <- select(bc_species, ScientificName, Ecosection)
 
 # this gets ecosections for each ScientificName
@@ -58,6 +58,8 @@ bc_boundary <- bcmaps::bc_bound()
 ecosection_simple <- ms_simplify(ecosection_map)
 
 usethis::use_data(bc_species, overwrite = TRUE)
-usethis::use_data(ecosection_simple, overwrite = TRUE, internal = TRUE)
-usethis::use_data(bc_boundary, overwrite = TRUE, internal = TRUE)
-usethis::use_data(ecosections, overwrite = TRUE, internal = TRUE)
+
+usethis::use_data(ecosection_simple, ecosections, bc_boundary,
+                  overwrite = TRUE, internal = TRUE)
+
+

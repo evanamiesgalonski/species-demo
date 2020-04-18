@@ -2,6 +2,7 @@
 
 export(conservation_status)
 export(double)
+export(species_map)
 import(chk)
 import(lifecycle)
 import(shiny, except = p)
