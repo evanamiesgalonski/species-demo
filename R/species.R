@@ -22,11 +22,14 @@ conservation_status <- function(species) {
 
 #' species_map
 #'
+#'Shows oyu a cools speiecs map thingy
+#'
 #' @param species the species of interest
 #' @return a map indicating all ecosections where the species is extant
 #' @export
 #'
 #' @examples
+#' species_map("Anemone occidentalis - Carex nigricans")
 #'
 species_map <- function(species) {
 

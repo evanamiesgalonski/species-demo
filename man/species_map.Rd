@@ -13,8 +13,9 @@ species_map(species)
 a map indicating all ecosections where the species is extant
 }
 \description{
-species_map
+Shows oyu a cools speiecs map thingy
 }
 \examples{
+species_map("Anemone occidentalis - Carex nigricans")
 
 }
